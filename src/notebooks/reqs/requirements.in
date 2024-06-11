@@ -1,0 +1,12 @@
+### Connectors
+requests
+boto3
+
+### STAC
+rasterio
+shapely
+pystac
+matplotlib
+
+### Notebook
+ipykernel

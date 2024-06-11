@@ -1,0 +1,30 @@
+version: 0.1
+resource_type_default_usage:
+  aws_nat_gateway:
+    monthly_data_processed_gb: 100 # Monthly data processed by the NAT Gateway in GB.
+  aws_cloudwatch_log_group:
+    storage_gb: 10 # Total data stored by CloudWatch logs in GB.
+    monthly_data_ingested_gb: 1 # Monthly data ingested by CloudWatch logs in GB.
+    monthly_data_scanned_gb: 2 # Monthly data scanned by CloudWatch logs insights in GB.
+  aws_lb:
+    new_connections: 100    # Number of newly established connections per second on average.
+    active_connections: 100 # Number of active connections per minute on average.
+    processed_bytes_gb: 1  # The number of bytes processed by the load balancer for HTTP(S) requests and responses in GB.
+    rule_evaluations: 10   # The product of number of rules processed by the load balancer and the request rate.
+  aws_ecr_repository:
+    storage_gb: 1 # Total size of ECR repository in GB.
+  aws_s3_bucket:
+    object_tags: 100000 # Total object tags. Only for AWS provider V3.
+    standard: # Usages of S3 Standard:
+      storage_gb: 100 # Total storage in GB.
+      monthly_tier_1_requests: 10000 # Monthly PUT, COPY, POST, LIST requests (Tier 1).
+      monthly_tier_2_requests: 10000 # Monthly GET, SELECT, and all other requests (Tier 2).
+      monthly_select_data_scanned_gb: 10 # Monthly data scanned by S3 Select in GB.
+      monthly_select_data_returned_gb: 10 # Monthly data returned by S3 Select in GB.
+  aws_efs_file_system:
+    storage_gb: 10                         # Total storage for Standard class in GB.
+    infrequent_access_storage_gb: 0       # Total storage for Infrequent Access class in GB.
+    monthly_infrequent_access_read_gb: 0   # Monthly infrequent access read requests in GB.
+    monthly_infrequent_access_write_gb: 0 # Monthly infrequent access write requests in GB.
+  aws_secretsmanager_secret:
+    monthly_requests: 10000 # Monthly API requests to Secrets Manager.
